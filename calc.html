@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua;
+            height: 100vh;
+        }
+
+        .calculator{
+            background-color: black;
+            height: 500px;
+            width: 350px;
+            border-radius: 30px;
+        }
+
+        .input-display{
+            background-color: white;
+            padding: 20px;
+            border-radius: 30px;
+            margin: 40px 20px 0;
+        }
+
+        .input-display input{
+            background-color: transparent;
+            border: none;
+        }
+
+        .buttons{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-top: 15px;
+            padding-left: 30px;
+            gap: 10px;
+        }
+
+        .buttons button{
+            height: 50px;
+            border-radius: 15px;
+            width: 50px;
+            background-color: white;
+            text-align: center;
+        }
+
+        .output{
+            width: 100%;
+            background-color: white;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .output button{
+            border: none;
+            background-color: transparent;
+            padding: 15px;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="input-display">
+            <input type="text" disabled id="display" >
+        </div>
+        <div class="buttons">
+
+            <button onclick="showNumber('7')">7</button>
+            <button onclick="showNumber('8')">8</button>
+            <button onclick="showNumber('9')">9</button>
+            <button onclick="showOperator('/')">/</button>
+            
+            <button onclick="showNumber('4')">4</button>
+            <button onclick="showNumber('5')">5</button>
+            <button onclick="showNumber('7')">6</button>
+            <button onclick="showOperator('*')">*</button>
+
+            <button onclick="showNumber('1')">1</button>
+            <button onclick="showNumber('2')">2</button>
+            <button onclick="showNumber('3')">3</button>
+            <button onclick="showOperator('-')">-</button>
+
+            <button>.</button>
+            <button onclick="showNumber('0')">0</button>
+            <button  onclick="showOperator('+')">+</button>
+            <button onclick="displayClear()">C</button>
+
+        </div>
+        <div class="output">
+            <button onclick="answer()">=</button>
+        </div>
+    </div>
+
+    <script>
+        let display = document.getElementById('display')
+
+        function showNumber(number){
+            display.value += number
+        }
+
+        function showOperator(operator){
+            display.value += operator
+        }
+
+        function displayClear(){
+            display.value = '';
+        }
+
+        function answer(){
+            display.value = eval(display.value)
+        }
+
+    </script>   
+</body>
+</html>
